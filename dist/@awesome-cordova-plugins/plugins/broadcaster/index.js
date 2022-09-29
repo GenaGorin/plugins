@@ -1,0 +1,35 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+import { AwesomeCordovaNativePlugin, cordova } from '@awesome-cordova-plugins/core';
+import { Observable } from 'rxjs';
+var BroadcasterOriginal = /** @class */ (function (_super) {
+    __extends(BroadcasterOriginal, _super);
+    function BroadcasterOriginal() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    BroadcasterOriginal.prototype.addEventListener = function (eventName, isGlobal) {
+        if (isGlobal === void 0) { isGlobal = false; }
+        return cordova(this, "addEventListener", { "observable": true, "clearFunction": "removeEventListener", "clearWithArgs": true }, arguments);
+    };
+    BroadcasterOriginal.prototype.fireNativeEvent = function (eventName, isGlobalOrEventData, data) { return cordova(this, "fireNativeEvent", {}, arguments); };
+    BroadcasterOriginal.pluginName = "Broadcaster";
+    BroadcasterOriginal.plugin = "cordova-plugin-broadcaster";
+    BroadcasterOriginal.pluginRef = "broadcaster";
+    BroadcasterOriginal.repo = "https://github.com/bsorrentino/cordova-broadcaster";
+    BroadcasterOriginal.platforms = ["Android", "iOS", "Browser"];
+    return BroadcasterOriginal;
+}(AwesomeCordovaNativePlugin));
+var Broadcaster = new BroadcasterOriginal();
+export { Broadcaster };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9zcmMvQGF3ZXNvbWUtY29yZG92YS1wbHVnaW5zL3BsdWdpbnMvYnJvYWRjYXN0ZXIvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7OztBQUNBLE9BQU8sdUNBQStDLE1BQU0sK0JBQStCLENBQUM7QUFDNUYsT0FBTyxFQUFFLFVBQVUsRUFBRSxNQUFNLE1BQU0sQ0FBQzs7SUE0Q0QsK0JBQTBCOzs7O0lBYXpELHNDQUFnQixhQUFDLFNBQWlCLEVBQUUsUUFBZ0I7UUFBaEIseUJBQUEsRUFBQSxnQkFBZ0I7OztJQWdCcEQscUNBQWUsYUFBQyxTQUFpQixFQUFFLG1CQUF3QyxFQUFFLElBQWdCOzs7Ozs7c0JBM0UvRjtFQThDaUMsMEJBQTBCO1NBQTlDLFdBQVciLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBJbmplY3RhYmxlIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XHJcbmltcG9ydCB7IENvcmRvdmEsIEF3ZXNvbWVDb3Jkb3ZhTmF0aXZlUGx1Z2luLCBQbHVnaW4gfSBmcm9tICdAYXdlc29tZS1jb3Jkb3ZhLXBsdWdpbnMvY29yZSc7XHJcbmltcG9ydCB7IE9ic2VydmFibGUgfSBmcm9tICdyeGpzJztcclxuXHJcbi8qKlxyXG4gKiBTcGVjaWZpYyBkYXRhIGZvciBBbmRyb2lkIGltcGxlbWVudGF0aW9uXHJcbiAqL1xyXG5leHBvcnQgaW50ZXJmYWNlIEFuZHJvaWREYXRhIHtcclxuICBleHRyYXM6IG9iamVjdDtcclxuICBmbGFnczogbnVtYmVyO1xyXG4gIGNhdGVnb3J5OiBzdHJpbmc7XHJcbn1cclxuXHJcbi8qKlxyXG4gKiBQb3NzaWJseSBFdmVudCBEYXRhIHR5cGVzXHJcbiAqL1xyXG5leHBvcnQgdHlwZSBFdmVudERhdGEgPSBvYmplY3QgfCBBbmRyb2lkRGF0YSB8IG51bGw7XHJcblxyXG4vKipcclxuICogQG5hbWUgQnJvYWRjYXN0ZXJcclxuICogQGRlc2NyaXB0aW9uXHJcbiAqIFRoaXMgcGx1Z2luIGFkZHMgZXhjaGFuZ2luZyBldmVudHMgYmV0d2VlbiBuYXRpdmUgY29kZSBhbmQgeW91ciBhcHAuXHJcbiAqIEB1c2FnZVxyXG4gKiBgYGB0eXBlc2NyaXB0XHJcbiAqIGltcG9ydCB7IEJyb2FkY2FzdGVyIH0gZnJvbSAnQGF3ZXNvbWUtY29yZG92YS1wbHVnaW5zL2Jyb2FkY2FzdGVyL25neCc7XHJcbiAqXHJcbiAqIGNvbnN0cnVjdG9yKHByaXZhdGUgYnJvYWRjYXN0ZXI6IEJyb2FkY2FzdGVyKSB7IH1cclxuICpcclxuICogLi4uXHJcbiAqXHJcbiAqIC8vIExpc3RlbiB0byBldmVudHMgZnJvbSBOYXRpdmVcclxuICogdGhpcy5icm9hZGNhc3Rlci5hZGRFdmVudExpc3RlbmVyKCdldmVudE5hbWUnKS5zdWJzY3JpYmUoKGV2ZW50KSA9PiBjb25zb2xlLmxvZyhldmVudCkpO1xyXG4gKlxyXG4gKiAvLyBTZW5kIGV2ZW50IHRvIE5hdGl2ZVxyXG4gKiB0aGlzLmJyb2FkY2FzdGVyLmZpcmVOYXRpdmVFdmVudCgnZXZlbnROYW1lJywge30pLnRoZW4oKCkgPT4gY29uc29sZS5sb2coJ3N1Y2Nlc3MnKSk7XHJcbiAqXHJcbiAqIGBgYFxyXG4gKi9cclxuQFBsdWdpbih7XHJcbiAgcGx1Z2luTmFtZTogJ0Jyb2FkY2FzdGVyJyxcclxuICBwbHVnaW46ICdjb3Jkb3ZhLXBsdWdpbi1icm9hZGNhc3RlcicsXHJcbiAgcGx1Z2luUmVmOiAnYnJvYWRjYXN0ZXInLFxyXG4gIHJlcG86ICdodHRwczovL2dpdGh1Yi5jb20vYnNvcnJlbnRpbm8vY29yZG92YS1icm9hZGNhc3RlcicsXHJcbiAgcGxhdGZvcm1zOiBbJ0FuZHJvaWQnLCAnaU9TJywgJ0Jyb3dzZXInXSxcclxufSlcclxuQEluamVjdGFibGUoKVxyXG5leHBvcnQgY2xhc3MgQnJvYWRjYXN0ZXIgZXh0ZW5kcyBBd2Vzb21lQ29yZG92YU5hdGl2ZVBsdWdpbiB7XHJcbiAgLyoqXHJcbiAgICogVGhpcyBmdW5jdGlvbiBsaXN0ZW4gdG8gYW4gZXZlbnQgc2VudCBmcm9tIHRoZSBuYXRpdmUgY29kZVxyXG4gICAqXHJcbiAgICogQHBhcmFtIHtzdHJpbmd9IGV2ZW50TmFtZVxyXG4gICAqIEBwYXJhbSB7Ym9vbGVhbn0gaXNHbG9iYWwgVmFsaWQgb25seSBmb3IgQW5kcm9pZC4gSXQgYWxsb3dzIHRvIGxpc3RlbiBmb3IgZ2xvYmFsIG1lc3NhZ2VzKGkuZS4gaW50ZW50cylcclxuICAgKiBAcmV0dXJucyB7T2JzZXJ2YWJsZTxhbnk+fSBSZXR1cm5zIGFuIG9ic2VydmFibGUgdG8gd2F0Y2ggd2hlbiBhbiBldmVudCBpcyByZWNlaXZlZFxyXG4gICAqL1xyXG4gIEBDb3Jkb3ZhKHtcclxuICAgIG9ic2VydmFibGU6IHRydWUsXHJcbiAgICBjbGVhckZ1bmN0aW9uOiAncmVtb3ZlRXZlbnRMaXN0ZW5lcicsXHJcbiAgICBjbGVhcldpdGhBcmdzOiB0cnVlLFxyXG4gIH0pXHJcbiAgYWRkRXZlbnRMaXN0ZW5lcihldmVudE5hbWU6IHN0cmluZywgaXNHbG9iYWwgPSBmYWxzZSk6IE9ic2VydmFibGU8YW55PiB7XHJcbiAgICByZXR1cm47XHJcbiAgfVxyXG5cclxuICAvKipcclxuICAgKiBUaGlzIGZ1bmN0aW9uIHNlbmRzIGRhdGEgdG8gdGhlIG5hdGl2ZSBjb2RlXHJcbiAgICpcclxuICAgKiBAcGFyYW0ge3N0cmluZ30gZXZlbnROYW1lXHJcbiAgICogQHBhcmFtIHtib29sZWFufSBpc0dsb2JhbE9yRXZlbnREYXRhIG1lYW5zIHRoYXQgbWVzc2FnZSBpcyBnbG9iYWwgKHZhbGlkIG9ubHkgb24gQW5kcm9pZClcclxuICAgKiBAcGFyYW0ge0FuZHJvaWREYXRhfSBpc0dsb2JhbE9yRXZlbnREYXRhIGFsbG93cyB0byBzcGVjaWZ5ICdmbGFnc2AgYW5kICdjYXRlZ29yeScgKHZhbGlkIG9ubHkgb24gQW5kcm9pZClcclxuICAgKiBAcGFyYW0ge29iamVjdH0gaXNHbG9iYWxPckV2ZW50RGF0YSBhbGxvd3MgdG8gc3BlY2lmeSBhIGdlbmVyaWMgb2JqZWN0IGNvbnRhaW5pbmcgY3VzdG9tIGV2ZW50IGRhdGEgKGFsbCBwbGF0Zm9ybSlcclxuICAgKiBAcGFyYW0ge0FuZHJvaWREYXRhfSBbZGF0YV0gaWYgaXNHbG9iYWwgaXMgc2V0LCBhbGxvd3MgdG8gc3BlY2lmeSAnZmxhZ3NgIGFuZCAnY2F0ZWdvcnknIGlmIGlzR2xvYmFsIGlzIHNldCAodmFsaWQgb25seSBvbiBBbmRyb2lkKVxyXG4gICAqIEBwYXJhbSB7b2JqZWN0fSBbZGF0YV0gaWYgaXNHbG9iYWwgaXMgc2V0LCBhbGxvd3MgdG8gc3BlY2lmeSBhIGdlbmVyaWMgb2JqZWN0IGNvbnRhaW5pbmcgY3VzdG9tIGV2ZW50IGRhdGEgKGFsbCBwbGF0Zm9ybSlcclxuICAgKiBAcmV0dXJucyB7UHJvbWlzZTxhbnk+fSBSZXR1cm5zIGEgcHJvbWlzZSB0aGF0IHJlc29sdmVzIHdoZW4gYW4gZXZlbnQgaXMgc3VjY2Vzc2Z1bGx5IGZpcmVkXHJcbiAgICovXHJcbiAgQENvcmRvdmEoKVxyXG4gIGZpcmVOYXRpdmVFdmVudChldmVudE5hbWU6IHN0cmluZywgaXNHbG9iYWxPckV2ZW50RGF0YTogYm9vbGVhbiB8IEV2ZW50RGF0YSwgZGF0YT86IEV2ZW50RGF0YSk6IFByb21pc2U8YW55PiB7XHJcbiAgICByZXR1cm47XHJcbiAgfVxyXG59XHJcbiJdfQ==

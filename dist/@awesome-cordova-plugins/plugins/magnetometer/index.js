@@ -1,0 +1,32 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+import { AwesomeCordovaNativePlugin, cordova } from '@awesome-cordova-plugins/core';
+import { Observable } from 'rxjs';
+var MagnetometerOriginal = /** @class */ (function (_super) {
+    __extends(MagnetometerOriginal, _super);
+    function MagnetometerOriginal() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    MagnetometerOriginal.prototype.getReading = function () { return cordova(this, "getReading", {}, arguments); };
+    MagnetometerOriginal.prototype.watchReadings = function () { return cordova(this, "watchReadings", { "callbackOrder": "reverse", "observable": true, "clearFunction": "stop" }, arguments); };
+    MagnetometerOriginal.pluginName = "Magnetometer";
+    MagnetometerOriginal.plugin = "cordova-plugin-magnetometer";
+    MagnetometerOriginal.pluginRef = "cordova.plugins.magnetometer";
+    MagnetometerOriginal.repo = "https://github.com/sdesalas/cordova-plugin-magnetometer";
+    MagnetometerOriginal.platforms = ["Android", "iOS"];
+    return MagnetometerOriginal;
+}(AwesomeCordovaNativePlugin));
+var Magnetometer = new MagnetometerOriginal();
+export { Magnetometer };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9zcmMvQGF3ZXNvbWUtY29yZG92YS1wbHVnaW5zL3BsdWdpbnMvbWFnbmV0b21ldGVyL2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7QUFDQSxPQUFPLHVDQUErQyxNQUFNLCtCQUErQixDQUFDO0FBQzVGLE9BQU8sRUFBRSxVQUFVLEVBQUUsTUFBTSxNQUFNLENBQUM7O0lBNERBLGdDQUEwQjs7OztJQU0xRCxpQ0FBVTtJQWVWLG9DQUFhOzs7Ozs7dUJBbkZmO0VBOERrQywwQkFBMEI7U0FBL0MsWUFBWSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEluamVjdGFibGUgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcclxuaW1wb3J0IHsgUGx1Z2luLCBDb3Jkb3ZhLCBBd2Vzb21lQ29yZG92YU5hdGl2ZVBsdWdpbiB9IGZyb20gJ0Bhd2Vzb21lLWNvcmRvdmEtcGx1Z2lucy9jb3JlJztcclxuaW1wb3J0IHsgT2JzZXJ2YWJsZSB9IGZyb20gJ3J4anMnO1xyXG5cclxuZXhwb3J0IGludGVyZmFjZSBNYWduZXRvbWV0ZXJSZWFkaW5nIHtcclxuICAvKipcclxuICAgKiBYIHJlYWRpbmcgb2YgbWFnbmV0b21ldGVyLiAoTnVtYmVyKVxyXG4gICAqL1xyXG4gIHg6IG51bWJlcjtcclxuICAvKipcclxuICAgKiBZIHJlYWRpbmcgb2YgbWFnbmV0b21ldGVyLiAoTnVtYmVyKVxyXG4gICAqL1xyXG4gIHk6IG51bWJlcjtcclxuICAvKipcclxuICAgKiBaIHJlYWRpbmcgb2YgbWFnbmV0b21ldGVyLiAoTnVtYmVyKVxyXG4gICAqL1xyXG4gIHo6IG51bWJlcjtcclxuICAvKipcclxuICAgKiBDYWxjdWxhdGVkIHRvdGFsIC0gYWx3YXlzIHBvc2l0aXZlIG9mIG1hZ25ldG9tZXRlci4gKE51bWJlcilcclxuICAgKi9cclxuICBtYWduaXR1ZGU6IG51bWJlcjtcclxufVxyXG5cclxuLyoqXHJcbiAqIEBuYW1lIERldmljZSBlTWFnbmV0b21ldGVyXHJcbiAqIEBkZXNjcmlwdGlvblxyXG4gKiBSZXF1aXJlcyBDb3Jkb3ZhIHBsdWdpbjogYGNvcmRvdmEtcGx1Z2luLW1hZ25ldG9tZXRlcmAuIEZvciBtb3JlIGluZm8sIHBsZWFzZSBzZWUgdGhlIFtEZXZpY2UgT3JpZW50YXRpb24gZG9jc10oaHR0cHM6Ly9naXRodWIuY29tL3NkZXNhbGFzL2NvcmRvdmEtcGx1Z2luLW1hZ25ldG9tZXRlcikuXHJcbiAqXHJcbiAqIEB1c2FnZVxyXG4gKiBgYGB0eXBlc2NyaXB0XHJcbiAqIC8vIE1hZ25ldG9tZXRlclJlYWRpbmcgaXMgYW4gaW50ZXJmYWNlIGZvciBjb21wYXNzXHJcbiAqIGltcG9ydCB7IE1hZ25ldG9tZXRlciwgTWFnbmV0b21ldGVyUmVhZGluZyB9IGZyb20gJ0Bhd2Vzb21lLWNvcmRvdmEtcGx1Z2lucy9kZXZpY2Utb3JpZW50YXRpb24vbmd4JztcclxuICpcclxuICogY29uc3RydWN0b3IocHJpdmF0ZSBtYWduZXRvbWV0ZXI6IE1hZ25ldG9tZXRlcikgeyB9XHJcbiAqXHJcbiAqIC4uLlxyXG4gKlxyXG4gKiAvLyBHZXQgdGhlIGRldmljZSBjdXJyZW50IGNvbXBhc3MgaGVhZGluZ1xyXG4gKiB0aGlzLm1hZ25ldG9tZXRlci5nZXRSZWFkaW5nKCkudGhlbihcclxuICogICAoZGF0YTogTWFnbmV0b21ldGVyUmVhZGluZykgPT4gY29uc29sZS5sb2coZGF0YSksXHJcbiAqICAgKGVycm9yOiBhbnkpID0+IGNvbnNvbGUubG9nKGVycm9yKVxyXG4gKiApO1xyXG4gKlxyXG4gKiAvLyBXYXRjaCB0aGUgZGV2aWNlIGNvbXBhc3MgaGVhZGluZyBjaGFuZ2VcclxuICogdmFyIHN1YnNjcmlwdGlvbiA9IHRoaXMubWFnbmV0b21ldGVyLndhdGNoUmVhZGluZ3MoKS5zdWJzY3JpYmUoXHJcbiAqICAgKGRhdGE6IE1hZ25ldG9tZXRlclJlYWRpbmcpID0+IGNvbnNvbGUubG9nKGRhdGEpXHJcbiAqICk7XHJcbiAqXHJcbiAqIC8vIFN0b3Agd2F0Y2hpbmcgaGVhZGluZyBjaGFuZ2VcclxuICogc3Vic2NyaXB0aW9uLnVuc3Vic2NyaWJlKCk7XHJcbiAqIGBgYFxyXG4gKiBAaW50ZXJmYWNlc1xyXG4gKiBNYWduZXRvbWV0ZXJSZWFkaW5nXHJcbiAqL1xyXG5AUGx1Z2luKHtcclxuICBwbHVnaW5OYW1lOiAnTWFnbmV0b21ldGVyJyxcclxuICBwbHVnaW46ICdjb3Jkb3ZhLXBsdWdpbi1tYWduZXRvbWV0ZXInLFxyXG4gIHBsdWdpblJlZjogJ2NvcmRvdmEucGx1Z2lucy5tYWduZXRvbWV0ZXInLFxyXG4gIHJlcG86ICdodHRwczovL2dpdGh1Yi5jb20vc2Rlc2FsYXMvY29yZG92YS1wbHVnaW4tbWFnbmV0b21ldGVyJyxcclxuICBwbGF0Zm9ybXM6IFsnQW5kcm9pZCcsICdpT1MnXSxcclxufSlcclxuQEluamVjdGFibGUoKVxyXG5leHBvcnQgY2xhc3MgTWFnbmV0b21ldGVyIGV4dGVuZHMgQXdlc29tZUNvcmRvdmFOYXRpdmVQbHVnaW4ge1xyXG4gIC8qKlxyXG4gICAqIEdldCB0aGUgY3VycmVudCBjb21wYXNzIHJlYWRpbmcuXHJcbiAgICogQHJldHVybnMge1Byb21pc2U8TWFnbmV0b21ldGVyUmVhZGluZz59XHJcbiAgICovXHJcbiAgQENvcmRvdmEoKVxyXG4gIGdldFJlYWRpbmcoKTogUHJvbWlzZTxNYWduZXRvbWV0ZXJSZWFkaW5nPiB7XHJcbiAgICByZXR1cm47XHJcbiAgfVxyXG4gIC8qKlxyXG4gICAqIEdldCB0aGUgZGV2aWNlIGN1cnJlbnQgaGVhZGluZyBhdCBhIHJlZ3VsYXIgaW50ZXJ2YWxcclxuICAgKlxyXG4gICAqIFN0b3AgdGhlIHdhdGNoIGJ5IHVuc3Vic2NyaWJpbmcgZnJvbSB0aGUgb2JzZXJ2YWJsZVxyXG4gICAqIEBwYXJhbSB7RGV2aWNlT3JpZW50YXRpb25Db21wYXNzT3B0aW9uc30gW29wdGlvbnNdIE9wdGlvbnMgZm9yIGNvbXBhc3MuIEZyZXF1ZW5jeSBhbmQgRmlsdGVyLiBPcHRpb25hbFxyXG4gICAqIEByZXR1cm5zIHtPYnNlcnZhYmxlPERldmljZU9yaWVudGF0aW9uQ29tcGFzc0hlYWRpbmc+fSBSZXR1cm5zIGFuIG9ic2VydmFibGUgdGhhdCBjb250YWlucyB0aGUgY29tcGFzcyBoZWFkaW5nXHJcbiAgICovXHJcbiAgQENvcmRvdmEoe1xyXG4gICAgY2FsbGJhY2tPcmRlcjogJ3JldmVyc2UnLFxyXG4gICAgb2JzZXJ2YWJsZTogdHJ1ZSxcclxuICAgIGNsZWFyRnVuY3Rpb246ICdzdG9wJyxcclxuICB9KVxyXG4gIHdhdGNoUmVhZGluZ3MoKTogT2JzZXJ2YWJsZTxNYWduZXRvbWV0ZXJSZWFkaW5nPiB7XHJcbiAgICByZXR1cm47XHJcbiAgfVxyXG59XHJcbiJdfQ==

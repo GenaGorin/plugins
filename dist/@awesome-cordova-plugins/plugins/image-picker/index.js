@@ -1,0 +1,39 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+import { AwesomeCordovaNativePlugin, cordova } from '@awesome-cordova-plugins/core';
+export var OutputType;
+(function (OutputType) {
+    OutputType[OutputType["FILE_URL"] = 0] = "FILE_URL";
+    OutputType[OutputType["DATA_URL"] = 1] = "DATA_URL";
+})(OutputType || (OutputType = {}));
+var ImagePickerOriginal = /** @class */ (function (_super) {
+    __extends(ImagePickerOriginal, _super);
+    function ImagePickerOriginal() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ImagePickerOriginal.prototype.getPictures = function (options) { return cordova(this, "getPictures", { "callbackOrder": "reverse" }, arguments); };
+    ImagePickerOriginal.prototype.hasReadPermission = function () { return cordova(this, "hasReadPermission", { "platforms": ["Android"] }, arguments); };
+    ImagePickerOriginal.prototype.requestReadPermission = function () { return cordova(this, "requestReadPermission", { "platforms": ["Android"] }, arguments); };
+    ImagePickerOriginal.pluginName = "ImagePicker";
+    ImagePickerOriginal.plugin = "cordova-plugin-telerik-imagepicker";
+    ImagePickerOriginal.pluginRef = "window.imagePicker";
+    ImagePickerOriginal.repo = "https://github.com/Telerik-Verified-Plugins/ImagePicker";
+    ImagePickerOriginal.install = "ionic cordova plugin add cordova-plugin-telerik-imagepicker --variable PHOTO_LIBRARY_USAGE_DESCRIPTION=\"your usage message\"";
+    ImagePickerOriginal.installVariables = ["PHOTO_LIBRARY_USAGE_DESCRIPTION"];
+    ImagePickerOriginal.platforms = ["Android", "iOS"];
+    return ImagePickerOriginal;
+}(AwesomeCordovaNativePlugin));
+var ImagePicker = new ImagePickerOriginal();
+export { ImagePicker };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9zcmMvQGF3ZXNvbWUtY29yZG92YS1wbHVnaW5zL3BsdWdpbnMvaW1hZ2UtcGlja2VyL2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7QUFDQSxPQUFPLHVDQUErQyxNQUFNLCtCQUErQixDQUFDO0FBb0Q1RixNQUFNLENBQU4sSUFBWSxVQUdYO0FBSEQsV0FBWSxVQUFVO0lBQ3BCLG1EQUFZLENBQUE7SUFDWixtREFBUSxDQUFBO0FBQ1YsQ0FBQyxFQUhXLFVBQVUsS0FBVixVQUFVLFFBR3JCOztJQXVDZ0MsK0JBQTBCOzs7O0lBV3pELGlDQUFXLGFBQUMsT0FBMkI7SUFZdkMsdUNBQWlCO0lBWWpCLDJDQUFxQjs7Ozs7Ozs7c0JBbEl2QjtFQStGaUMsMEJBQTBCO1NBQTlDLFdBQVciLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBJbmplY3RhYmxlIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XHJcbmltcG9ydCB7IENvcmRvdmEsIEF3ZXNvbWVDb3Jkb3ZhTmF0aXZlUGx1Z2luLCBQbHVnaW4gfSBmcm9tICdAYXdlc29tZS1jb3Jkb3ZhLXBsdWdpbnMvY29yZSc7XHJcblxyXG5leHBvcnQgaW50ZXJmYWNlIEltYWdlUGlja2VyT3B0aW9ucyB7XHJcbiAgLyoqXHJcbiAgICogbWF4IGltYWdlcyB0byBiZSBzZWxlY3RlZCwgZGVmYXVsdHMgdG8gMTUuIElmIHRoaXMgaXMgc2V0IHRvIDEsIHVwb24gc2VsZWN0aW9uIG9mIGEgc2luZ2xlIGltYWdlLCB0aGUgcGx1Z2luIHdpbGwgcmV0dXJuIGl0LiAoQW5kcm9pZCBvbmx5KVxyXG4gICAqL1xyXG4gIG1heGltdW1JbWFnZXNDb3VudD86IG51bWJlcjtcclxuXHJcbiAgLyoqXHJcbiAgICogTWF4IHdpZHRoIHRvIGFsbG93IGltYWdlcyB0byBiZVxyXG4gICAqL1xyXG4gIHdpZHRoPzogbnVtYmVyO1xyXG5cclxuICAvKipcclxuICAgKiBNYXggaGVpZ2h0IHRvIGFsbG93IGltYWdlcyB0byBiZVxyXG4gICAqL1xyXG4gIGhlaWdodD86IG51bWJlcjtcclxuXHJcbiAgLyoqXHJcbiAgICogUXVhbGl0eSBvZiBpbWFnZXMsIGRlZmF1bHRzIHRvIDEwMFxyXG4gICAqL1xyXG4gIHF1YWxpdHk/OiBudW1iZXI7XHJcblxyXG4gIC8qKlxyXG4gICAqIFZpZGVvcyBhbGxvd2VkP1xyXG4gICAqL1xyXG4gIGFsbG93X3ZpZGVvPzogYm9vbGVhbjtcclxuXHJcbiAgLyoqXHJcbiAgICogdGhlIGRlZmF1bHQgaXMgdGhlIG1lc3NhZ2Ugb2YgdGhlIG9sZCBwbHVnaW4gaW1wbFxyXG4gICAqL1xyXG4gIHRpdGxlPzogc3RyaW5nO1xyXG5cclxuICAvKipcclxuICAgKiB0aGUgb2xkIHBsdWdpbiBpbXBsIGRpZG4ndCBoYXZlIGl0LCBzbyBwYXNzaW5nIG51bGwgYnkgZGVmYXVsdFxyXG4gICAqL1xyXG4gIG1lc3NhZ2U/OiBzdHJpbmc7XHJcblxyXG4gIC8qKlxyXG4gICAqIENob29zZSB0aGUgZm9ybWF0IG9mIHRoZSByZXR1cm4gdmFsdWUuXHJcbiAgICogRGVmaW5lZCBpbiBJbWFnZVBpY2tlci5PdXRwdXRUeXBlLiBEZWZhdWx0IGlzIEZJTEVfVVJJLlxyXG4gICAqICAgICAgRklMRV9VUkkgOiAwLCAgIFJldHVybiBpbWFnZSBmaWxlIFVSSSxcclxuICAgKiAgICAgIERBVEFfVVJMIDogMSwgICBSZXR1cm4gaW1hZ2UgYXMgYmFzZTY0LWVuY29kZWQgc3RyaW5nXHJcbiAgICovXHJcbiAgb3V0cHV0VHlwZT86IG51bWJlcjtcclxuXHJcbiAgLyoqXHJcbiAgICogRGlzYWJsZSB0aGUgaU9TIHBvcG92ZXIgYXMgc2VlbiBvbiBpUGFkXHJcbiAgICovXHJcbiAgZGlzYWJsZV9wb3BvdmVyPzogYm9vbGVhbjtcclxufVxyXG5cclxuZXhwb3J0IGVudW0gT3V0cHV0VHlwZSB7XHJcbiAgRklMRV9VUkwgPSAwLFxyXG4gIERBVEFfVVJMLFxyXG59XHJcblxyXG4vKipcclxuICogQG5hbWUgSW1hZ2UgUGlja2VyXHJcbiAqIEBkZXNjcmlwdGlvblxyXG4gKiBDb3Jkb3ZhIFBsdWdpbiBGb3IgTXVsdGlwbGUgSW1hZ2UgU2VsZWN0aW9uXHJcbiAqXHJcbiAqIFJlcXVpcmVzIENvcmRvdmEgcGx1Z2luOiBgY29yZG92YS1wbHVnaW4taW1hZ2UtcGlja2VyYC5cclxuICogRm9yIG1vcmUgaW5mbywgcGxlYXNlIHNlZSB0aGUgaHR0cHM6Ly9naXRodWIuY29tL1RlbGVyaWstVmVyaWZpZWQtUGx1Z2lucy9JbWFnZVBpY2tlclxyXG4gKiBAdXNhZ2VcclxuICogYGBgdHlwZXNjcmlwdFxyXG4gKiBpbXBvcnQgeyBJbWFnZVBpY2tlciB9IGZyb20gJ0Bhd2Vzb21lLWNvcmRvdmEtcGx1Z2lucy9pbWFnZS1waWNrZXIvbmd4JztcclxuICpcclxuICpcclxuICogY29uc3RydWN0b3IocHJpdmF0ZSBpbWFnZVBpY2tlcjogSW1hZ2VQaWNrZXIpIHsgfVxyXG4gKlxyXG4gKiAuLi5cclxuICpcclxuICogdGhpcy5pbWFnZVBpY2tlci5nZXRQaWN0dXJlcyhvcHRpb25zKS50aGVuKChyZXN1bHRzKSA9PiB7XHJcbiAqICAgZm9yICh2YXIgaSA9IDA7IGkgPCByZXN1bHRzLmxlbmd0aDsgaSsrKSB7XHJcbiAqICAgICAgIGNvbnNvbGUubG9nKCdJbWFnZSBVUkk6ICcgKyByZXN1bHRzW2ldKTtcclxuICogICB9XHJcbiAqIH0sIChlcnIpID0+IHsgfSk7XHJcbiAqXHJcbiAqIGBgYFxyXG4gKiBAaW50ZXJmYWNlc1xyXG4gKiBJbWFnZVBpY2tlck9wdGlvbnNcclxuICovXHJcbkBQbHVnaW4oe1xyXG4gIHBsdWdpbk5hbWU6ICdJbWFnZVBpY2tlcicsXHJcbiAgcGx1Z2luOiAnY29yZG92YS1wbHVnaW4tdGVsZXJpay1pbWFnZXBpY2tlcicsXHJcbiAgcGx1Z2luUmVmOiAnd2luZG93LmltYWdlUGlja2VyJyxcclxuICByZXBvOiAnaHR0cHM6Ly9naXRodWIuY29tL1RlbGVyaWstVmVyaWZpZWQtUGx1Z2lucy9JbWFnZVBpY2tlcicsXHJcbiAgaW5zdGFsbDpcclxuICAgICdpb25pYyBjb3Jkb3ZhIHBsdWdpbiBhZGQgY29yZG92YS1wbHVnaW4tdGVsZXJpay1pbWFnZXBpY2tlciAtLXZhcmlhYmxlIFBIT1RPX0xJQlJBUllfVVNBR0VfREVTQ1JJUFRJT049XCJ5b3VyIHVzYWdlIG1lc3NhZ2VcIicsXHJcbiAgaW5zdGFsbFZhcmlhYmxlczogWydQSE9UT19MSUJSQVJZX1VTQUdFX0RFU0NSSVBUSU9OJ10sXHJcbiAgcGxhdGZvcm1zOiBbJ0FuZHJvaWQnLCAnaU9TJ10sXHJcbn0pXHJcbkBJbmplY3RhYmxlKClcclxuZXhwb3J0IGNsYXNzIEltYWdlUGlja2VyIGV4dGVuZHMgQXdlc29tZUNvcmRvdmFOYXRpdmVQbHVnaW4ge1xyXG4gIC8qKlxyXG4gICAqIFBpY2sgcGljdHVyZXMgZnJvbSB0aGUgbGlicmFyeS5cclxuICAgKlxyXG4gICAqIEBwYXJhbSB7SW1hZ2VQaWNrZXJPcHRpb25zfSBvcHRpb25zXHJcbiAgICogQHJldHVybnMge1Byb21pc2U8YW55Pn0gUmV0dXJucyBhIFByb21pc2UgdGhhdCByZXNvbHZlcyB0aGUgaW1hZ2UgZmlsZSBVUklcclxuICAgKiBvdGhlcndpc2UgcmVqZWN0cyB3aXRoIGFuIGVycm9yLlxyXG4gICAqL1xyXG4gIEBDb3Jkb3ZhKHtcclxuICAgIGNhbGxiYWNrT3JkZXI6ICdyZXZlcnNlJyxcclxuICB9KVxyXG4gIGdldFBpY3R1cmVzKG9wdGlvbnM6IEltYWdlUGlja2VyT3B0aW9ucyk6IFByb21pc2U8YW55PiB7XHJcbiAgICByZXR1cm47XHJcbiAgfVxyXG5cclxuICAvKipcclxuICAgKiBDaGVjayBpZiB3ZSBoYXZlIHBlcm1pc3Npb24gdG8gcmVhZCBpbWFnZXNcclxuICAgKlxyXG4gICAqIEByZXR1cm5zIHtQcm9taXNlPGJvb2xlYW4+fSBSZXR1cm5zIGEgcHJvbWlzZSB0aGF0IHJlc29sdmVzIHdpdGggYSBib29sZWFuIHRoYXQgaW5kaWNhdGVzIHdoZXRoZXIgd2UgaGF2ZSBwZXJtaXNzaW9uXHJcbiAgICovXHJcbiAgQENvcmRvdmEoe1xyXG4gICAgcGxhdGZvcm1zOiBbJ0FuZHJvaWQnXSxcclxuICB9KVxyXG4gIGhhc1JlYWRQZXJtaXNzaW9uKCk6IFByb21pc2U8Ym9vbGVhbj4ge1xyXG4gICAgcmV0dXJuO1xyXG4gIH1cclxuXHJcbiAgLyoqXHJcbiAgICogUmVxdWVzdCBwZXJtaXNzaW9uIHRvIHJlYWQgaW1hZ2VzXHJcbiAgICpcclxuICAgKiBAcmV0dXJucyB7UHJvbWlzZTxhbnk+fVxyXG4gICAqL1xyXG4gIEBDb3Jkb3ZhKHtcclxuICAgIHBsYXRmb3JtczogWydBbmRyb2lkJ10sXHJcbiAgfSlcclxuICByZXF1ZXN0UmVhZFBlcm1pc3Npb24oKTogUHJvbWlzZTxhbnk+IHtcclxuICAgIHJldHVybjtcclxuICB9XHJcbn1cclxuIl19

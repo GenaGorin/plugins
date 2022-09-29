@@ -1,0 +1,71 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+import { AwesomeCordovaNativePlugin, cordova } from '@awesome-cordova-plugins/core';
+export var OCRSourceType;
+(function (OCRSourceType) {
+    /**
+     * Normal processing from a file URL. This is the overall recommended choice
+     * for most applications. The distinction between file and native URLs is
+     * only relevant on iOS; under Android `NORMFILEURL` and `NORMNATIVEURL`
+     * are interchangeable.
+     */
+    OCRSourceType[OCRSourceType["NORMFILEURL"] = 0] = "NORMFILEURL";
+    /**
+     * Normal processing from a native URL. Since this source type uses deprecated
+     * OS APIs to interact with the camera plugin, it is best avoided, especially
+     * if ongoing forward compatibility is a concern. For further information, see
+     * https://github.com/NeutrinosPlatform/cordova-plugin-mobile-ocr#plugin-usage
+     * Under Android, this is equivalent to `NORMFILEURL`.
+     */
+    OCRSourceType[OCRSourceType["NORMNATIVEURL"] = 1] = "NORMNATIVEURL";
+    /**
+     * Fast processing from a file URL. As the compression done internally causes
+     * a significant loss in extraction quality, it should only be preferred when
+     * dealing with large images containing significant amounts of text, where
+     * the execution time required to perform normal processing is prohibitive.
+     * The distinction between file and native URLs is only relevant on iOS;
+     * under Android `FASTFILEURL` and `FASTNATIVEURL` are interchangeable.
+     */
+    OCRSourceType[OCRSourceType["FASTFILEURL"] = 2] = "FASTFILEURL";
+    /**
+     * Fast processing from a native URL. See comments above for `FASTFILEURL`
+     * concerning quality loss.
+     *
+     * The distinction between file and native URLs is only relevant on iOS;
+     * under Android `FASTFILEURL` and `FASTNATIVEURL` are interchangeable.
+     */
+    OCRSourceType[OCRSourceType["FASTNATIVEURL"] = 3] = "FASTNATIVEURL";
+    /**
+     * Normal processing from a base64-encoded string. Quality is equivalent
+     * to `NORMFILEURL`, but due to significantly higher memory requirements,
+     * is only appropriate for use with very small images.
+     */
+    OCRSourceType[OCRSourceType["BASE64"] = 4] = "BASE64";
+})(OCRSourceType || (OCRSourceType = {}));
+var OCROriginal = /** @class */ (function (_super) {
+    __extends(OCROriginal, _super);
+    function OCROriginal() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    OCROriginal.prototype.recText = function (sourceType, source) { return cordova(this, "recText", {}, arguments); };
+    OCROriginal.pluginName = "OCR";
+    OCROriginal.plugin = "cordova-plugin-mobile-ocr";
+    OCROriginal.pluginRef = "textocr";
+    OCROriginal.repo = "https://github.com/NeutrinosPlatform/cordova-plugin-mobile-ocr";
+    OCROriginal.platforms = ["Android", "iOS"];
+    return OCROriginal;
+}(AwesomeCordovaNativePlugin));
+var OCR = new OCROriginal();
+export { OCR };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9zcmMvQGF3ZXNvbWUtY29yZG92YS1wbHVnaW5zL3BsdWdpbnMvb2NyL2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7QUFDQSxPQUFPLHVDQUErQyxNQUFNLCtCQUErQixDQUFDO0FBRTVGLE1BQU0sQ0FBTixJQUFZLGFBMkNYO0FBM0NELFdBQVksYUFBYTtJQUN2Qjs7Ozs7T0FLRztJQUNILCtEQUFlLENBQUE7SUFFZjs7Ozs7O09BTUc7SUFDSCxtRUFBaUIsQ0FBQTtJQUVqQjs7Ozs7OztPQU9HO0lBQ0gsK0RBQWUsQ0FBQTtJQUVmOzs7Ozs7T0FNRztJQUNILG1FQUFpQixDQUFBO0lBRWpCOzs7O09BSUc7SUFDSCxxREFBVSxDQUFBO0FBQ1osQ0FBQyxFQTNDVyxhQUFhLEtBQWIsYUFBYSxRQTJDeEI7O0lBMkd3Qix1QkFBMEI7Ozs7SUFTakQscUJBQU8sYUFBQyxVQUF5QixFQUFFLE1BQWM7Ozs7OztjQWxLbkQ7RUF5SnlCLDBCQUEwQjtTQUF0QyxHQUFHIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgSW5qZWN0YWJsZSB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xyXG5pbXBvcnQgeyBDb3Jkb3ZhLCBBd2Vzb21lQ29yZG92YU5hdGl2ZVBsdWdpbiwgUGx1Z2luIH0gZnJvbSAnQGF3ZXNvbWUtY29yZG92YS1wbHVnaW5zL2NvcmUnO1xyXG5cclxuZXhwb3J0IGVudW0gT0NSU291cmNlVHlwZSB7XHJcbiAgLyoqXHJcbiAgICogTm9ybWFsIHByb2Nlc3NpbmcgZnJvbSBhIGZpbGUgVVJMLiBUaGlzIGlzIHRoZSBvdmVyYWxsIHJlY29tbWVuZGVkIGNob2ljZVxyXG4gICAqIGZvciBtb3N0IGFwcGxpY2F0aW9ucy4gVGhlIGRpc3RpbmN0aW9uIGJldHdlZW4gZmlsZSBhbmQgbmF0aXZlIFVSTHMgaXNcclxuICAgKiBvbmx5IHJlbGV2YW50IG9uIGlPUzsgdW5kZXIgQW5kcm9pZCBgTk9STUZJTEVVUkxgIGFuZCBgTk9STU5BVElWRVVSTGBcclxuICAgKiBhcmUgaW50ZXJjaGFuZ2VhYmxlLlxyXG4gICAqL1xyXG4gIE5PUk1GSUxFVVJMID0gMCxcclxuXHJcbiAgLyoqXHJcbiAgICogTm9ybWFsIHByb2Nlc3NpbmcgZnJvbSBhIG5hdGl2ZSBVUkwuIFNpbmNlIHRoaXMgc291cmNlIHR5cGUgdXNlcyBkZXByZWNhdGVkXHJcbiAgICogT1MgQVBJcyB0byBpbnRlcmFjdCB3aXRoIHRoZSBjYW1lcmEgcGx1Z2luLCBpdCBpcyBiZXN0IGF2b2lkZWQsIGVzcGVjaWFsbHlcclxuICAgKiBpZiBvbmdvaW5nIGZvcndhcmQgY29tcGF0aWJpbGl0eSBpcyBhIGNvbmNlcm4uIEZvciBmdXJ0aGVyIGluZm9ybWF0aW9uLCBzZWVcclxuICAgKiBodHRwczovL2dpdGh1Yi5jb20vTmV1dHJpbm9zUGxhdGZvcm0vY29yZG92YS1wbHVnaW4tbW9iaWxlLW9jciNwbHVnaW4tdXNhZ2VcclxuICAgKiBVbmRlciBBbmRyb2lkLCB0aGlzIGlzIGVxdWl2YWxlbnQgdG8gYE5PUk1GSUxFVVJMYC5cclxuICAgKi9cclxuICBOT1JNTkFUSVZFVVJMID0gMSxcclxuXHJcbiAgLyoqXHJcbiAgICogRmFzdCBwcm9jZXNzaW5nIGZyb20gYSBmaWxlIFVSTC4gQXMgdGhlIGNvbXByZXNzaW9uIGRvbmUgaW50ZXJuYWxseSBjYXVzZXNcclxuICAgKiBhIHNpZ25pZmljYW50IGxvc3MgaW4gZXh0cmFjdGlvbiBxdWFsaXR5LCBpdCBzaG91bGQgb25seSBiZSBwcmVmZXJyZWQgd2hlblxyXG4gICAqIGRlYWxpbmcgd2l0aCBsYXJnZSBpbWFnZXMgY29udGFpbmluZyBzaWduaWZpY2FudCBhbW91bnRzIG9mIHRleHQsIHdoZXJlXHJcbiAgICogdGhlIGV4ZWN1dGlvbiB0aW1lIHJlcXVpcmVkIHRvIHBlcmZvcm0gbm9ybWFsIHByb2Nlc3NpbmcgaXMgcHJvaGliaXRpdmUuXHJcbiAgICogVGhlIGRpc3RpbmN0aW9uIGJldHdlZW4gZmlsZSBhbmQgbmF0aXZlIFVSTHMgaXMgb25seSByZWxldmFudCBvbiBpT1M7XHJcbiAgICogdW5kZXIgQW5kcm9pZCBgRkFTVEZJTEVVUkxgIGFuZCBgRkFTVE5BVElWRVVSTGAgYXJlIGludGVyY2hhbmdlYWJsZS5cclxuICAgKi9cclxuICBGQVNURklMRVVSTCA9IDIsXHJcblxyXG4gIC8qKlxyXG4gICAqIEZhc3QgcHJvY2Vzc2luZyBmcm9tIGEgbmF0aXZlIFVSTC4gU2VlIGNvbW1lbnRzIGFib3ZlIGZvciBgRkFTVEZJTEVVUkxgXHJcbiAgICogY29uY2VybmluZyBxdWFsaXR5IGxvc3MuXHJcbiAgICpcclxuICAgKiBUaGUgZGlzdGluY3Rpb24gYmV0d2VlbiBmaWxlIGFuZCBuYXRpdmUgVVJMcyBpcyBvbmx5IHJlbGV2YW50IG9uIGlPUztcclxuICAgKiB1bmRlciBBbmRyb2lkIGBGQVNURklMRVVSTGAgYW5kIGBGQVNUTkFUSVZFVVJMYCBhcmUgaW50ZXJjaGFuZ2VhYmxlLlxyXG4gICAqL1xyXG4gIEZBU1ROQVRJVkVVUkwgPSAzLFxyXG5cclxuICAvKipcclxuICAgKiBOb3JtYWwgcHJvY2Vzc2luZyBmcm9tIGEgYmFzZTY0LWVuY29kZWQgc3RyaW5nLiBRdWFsaXR5IGlzIGVxdWl2YWxlbnRcclxuICAgKiB0byBgTk9STUZJTEVVUkxgLCBidXQgZHVlIHRvIHNpZ25pZmljYW50bHkgaGlnaGVyIG1lbW9yeSByZXF1aXJlbWVudHMsXHJcbiAgICogaXMgb25seSBhcHByb3ByaWF0ZSBmb3IgdXNlIHdpdGggdmVyeSBzbWFsbCBpbWFnZXMuXHJcbiAgICovXHJcbiAgQkFTRTY0ID0gNCxcclxufVxyXG5cclxuLyoqXHJcbiAqIEZvdXIgcG9pbnRzIChvcmRlcmVkIGluIGNsb2Nrd2lzZSBkaXJlY3Rpb24pIHRoYXQgZW5jbG9zZSBhIHRleHRcclxuICogY29tcG9uZW50LiBNYXkgbm90IGJlIGF4aXMtYWxpZ25lZCBkdWUgdG8gcGVyc3BlY3RpdmUgc2tldy5cclxuICovXHJcbmV4cG9ydCBpbnRlcmZhY2UgT0NSQ29ybmVycyB7XHJcbiAgeDE6IG51bWJlcjtcclxuICB5MTogbnVtYmVyO1xyXG4gIHgyOiBudW1iZXI7XHJcbiAgeTI6IG51bWJlcjtcclxuICB4MzogbnVtYmVyO1xyXG4gIHkzOiBudW1iZXI7XHJcbiAgeDQ6IG51bWJlcjtcclxuICB5NDogbnVtYmVyO1xyXG59XHJcblxyXG4vKipcclxuICogQW4gYXhpcy1hbGlnbmVkIGJvdW5kaW5nIHJlY3RhbmdsZS4gYHhgIGFuZCBgeWAgcmVwcmVzZW50IHRoZSB0b3AgbGVmdC5cclxuICovXHJcbmV4cG9ydCBpbnRlcmZhY2UgT0NSUmVjdCB7XHJcbiAgeDogbnVtYmVyO1xyXG4gIHk6IG51bWJlcjtcclxuICBoZWlnaHQ6IG51bWJlcjtcclxuICB3aWR0aDogbnVtYmVyO1xyXG59XHJcblxyXG4vKipcclxuICogVGhpcyBpcyB0aGUgcmV0dXJuIHZhbHVlIGZyb20gdGhlIGByZWNUZXh0YCBtZXRob2QuXHJcbiAqL1xyXG5leHBvcnQgaW50ZXJmYWNlIE9DUlJlc3VsdCB7XHJcbiAgLyoqXHJcbiAgICogV2FzIGFueSB0ZXh0IGV4dHJhY3RlZD8gSWYgYGZvdW5kVGV4dGAgaXMgZmFsc2UsIG5vIG90aGVyIGZpZWxkcyBhcmVcclxuICAgKiByZXR1cm5lZC4gSWYgZm91bmRUZXh0IGlzIHRydWUsIGFsbCBvdGhlciBmaWVsZHMgYXJlIHJlbGlhYmxlLlxyXG4gICAqL1xyXG4gIGZvdW5kVGV4dDogYm9vbGVhbjtcclxuXHJcbiAgLyoqXHJcbiAgICogQSBibG9jayBpcyB0aGUgbGFyZ2VzdCB1bml0IG9mIHRleHQsIHdoaWNoIGNhbiBiZSB0aG91Z2h0IG9mIGFzIGEgcGFyYWdyYXBoLlxyXG4gICAqIFRoaXMgZmllbGQgY29uc2lzdHMgb2Ygc2V2ZXJhbCBwYXJhbGxlbCBhcnJheXMsIHNvIHRoZSB0ZXh0IGluIGBibG9ja3RleHRbMF1gXHJcbiAgICogaXMgYm91bmRlZCBieSBgYmxvY2twb2ludHNbMF1gIGFuZCBgYmxvY2tmcmFtZVswXWAuXHJcbiAgICovXHJcbiAgYmxvY2tzOiB7XHJcbiAgICBibG9ja3RleHQ6IHN0cmluZ1tdO1xyXG4gICAgYmxvY2twb2ludHM6IE9DUkNvcm5lcnNbXTtcclxuICAgIGJsb2NrZnJhbWU6IE9DUlJlY3RbXTtcclxuICB9O1xyXG5cclxuICAvKipcclxuICAgKiBBIGxpbmUgaXMgdGhlIGNlbnRyYWwgdW5pdCBvZiB0ZXh0LCBjb250YWluaW5nIHNldmVyYWwgZWxlbWVudHMuIEEgYmxvY2tcclxuICAgKiBjYW4gY29udGFpbiBOIGxpbmVzLiBUaGlzIGZpZWxkIGNvbnNpc3RzIG9mIHNldmVyYWwgcGFyYWxsZWwgYXJyYXlzLCBzbyB0aGVcclxuICAgKiB0ZXh0IGluIGBsaW5ldGV4dFswXWAgaXMgYm91bmRlZCBieSBgbGluZXBvaW50c1swXWAgYW5kIGBsaW5lZnJhbWVbMF1gLlxyXG4gICAqL1xyXG4gIGxpbmVzOiB7XHJcbiAgICBsaW5ldGV4dDogc3RyaW5nW107XHJcbiAgICBsaW5lcG9pbnRzOiBPQ1JDb3JuZXJzW107XHJcbiAgICBsaW5lZnJhbWU6IE9DUlJlY3RbXTtcclxuICB9O1xyXG5cclxuICAvKipcclxuICAgKiBBIHdvcmQgKG9yIGVsZW1lbnQpIGlzIHRoZSBzbWFsbGVzdCB1bml0IG9mIHRleHQuIFRoaXMgZmllbGQgY29uc2lzdHMgb2ZcclxuICAgKiBzZXZlcmFsIHBhcmFsbGVsIGFycmF5cywgc28gdGhlIHRleHQgaW4gYHdvcmR0ZXh0WzBdYCBpcyBib3VuZGVkIGJ5XHJcbiAgICogYHdvcmRwb2ludHNbMF1gIGFuZCBgd29yZGZyYW1lWzBdYC5cclxuICAgKi9cclxuICB3b3Jkczoge1xyXG4gICAgd29yZHRleHQ6IHN0cmluZ1tdO1xyXG4gICAgd29yZHBvaW50czogT0NSQ29ybmVyc1tdO1xyXG4gICAgd29yZGZyYW1lOiBPQ1JSZWN0W107XHJcbiAgfTtcclxufVxyXG5cclxuLyoqXHJcbiAqIEBuYW1lIE9DUlxyXG4gKiBAZGVzY3JpcHRpb25cclxuICogVGhpcyBwbHVnaW4gYXR0ZW1wdHMgdG8gaWRlbnRpZnkgYW5kIGV4dHJhY3QgdGV4dCBmcm9tIGFuIGltYWdlLlxyXG4gKiBQbGVhc2Ugbm90ZTogVGhpcyBwbHVnaW4gZGVwZW5kcyBvbiB0aGUgR29vZ2xlTW9iaWxlVmlzaW9uIHBvZCB3aGljaCBpcyByZWZlcmVuY2luZyBVSVdlYnZpZXcsIHRoYXQgaGFzIGJlZW4gZGVwcmVjYXRlZCBieSBBcHBsZS5cclxuICogRG9uJ3QgdXNlIHRoaXMgcGx1Z2luIGluIGFuIGFwcCBpbnRlbmRlZCBmb3IgQXBwIFN0b3JlIGFzIHlvdSB3aWxsIGdldCBhIHJldmlldyByZWplY3Rpb24gZnJvbSBBcHBsZTogYERlcHJlY2F0ZWQgQVBJIFVzYWdlIOKAlCBBcHBsZSB3aWxsIHN0b3AgYWNjZXB0aW5nIHN1Ym1pc3Npb25zIG9mIGFwcHMgdGhhdCB1c2UgVUlXZWJWaWV3IEFQSXNgXHJcbiAqIEZvciBtb3JlIGluZm8sIHBsZWFzZSBzZWUgdGhlIGZvbGxvd2luZyBHaXRodWIgaXNzdWUgW0dvb2dsZSBNb2JpbGUgVmlzaW9uIHJlbHlpbmcgb24gZGVwcmVjYXRlZCBVSVdlYnZpZXddKGh0dHBzOi8vZ2l0aHViLmNvbS9OZXV0cmlub3NQbGF0Zm9ybS9jb3Jkb3ZhLXBsdWdpbi1tb2JpbGUtb2NyL2lzc3Vlcy8yNykuXHJcbiAqIEB1c2FnZVxyXG4gKiBgYGB0eXBlc2NyaXB0XHJcbiAqIGltcG9ydCB7IE9DUiwgT0NSU291cmNlVHlwZSB9IGZyb20gJ0Bhd2Vzb21lLWNvcmRvdmEtcGx1Z2lucy9vY3Ivbmd4JztcclxuICpcclxuICpcclxuICogY29uc3RydWN0b3IocHJpdmF0ZSBvY3I6IE9DUikgeyB9XHJcbiAqXHJcbiAqIC4uLlxyXG4gKlxyXG4gKiB0aGlzLm9jci5yZWNUZXh0KE9DUlNvdXJjZVR5cGUuTk9STUZJTEVVUkwsIFwiZmlsZTovL3BhdGgvdG8vaW1hZ2UucG5nXCIpXHJcbiAqICAgLnRoZW4oKHJlczogT0NSUmVzdWx0KSA9PiBjb25zb2xlLmxvZyhKU09OLnN0cmluZ2lmeShyZXMpKSlcclxuICogICAuY2F0Y2goKGVycm9yOiBhbnkpID0+IGNvbnNvbGUuZXJyb3IoZXJyb3IpKTtcclxuICpcclxuICogYGBgXHJcbiAqIEBpbnRlcmZhY2VzXHJcbiAqIE9DUkNvcm5lcnNcclxuICogT0NSUmVjdFxyXG4gKiBPQ1JSZXN1bHRcclxuICogQGVudW1zXHJcbiAqIE9DUlNvdXJjZVR5cGVcclxuICovXHJcbkBQbHVnaW4oe1xyXG4gIHBsdWdpbk5hbWU6ICdPQ1InLFxyXG4gIHBsdWdpbjogJ2NvcmRvdmEtcGx1Z2luLW1vYmlsZS1vY3InLFxyXG4gIHBsdWdpblJlZjogJ3RleHRvY3InLFxyXG4gIHJlcG86ICdodHRwczovL2dpdGh1Yi5jb20vTmV1dHJpbm9zUGxhdGZvcm0vY29yZG92YS1wbHVnaW4tbW9iaWxlLW9jcicsXHJcbiAgcGxhdGZvcm1zOiBbJ0FuZHJvaWQnLCAnaU9TJ10sXHJcbn0pXHJcbkBJbmplY3RhYmxlKClcclxuZXhwb3J0IGNsYXNzIE9DUiBleHRlbmRzIEF3ZXNvbWVDb3Jkb3ZhTmF0aXZlUGx1Z2luIHtcclxuICAvKipcclxuICAgKiBFeHRyYWN0IHRleHQgZnJvbSBpbWFnZVxyXG4gICAqXHJcbiAgICogQHBhcmFtIHNvdXJjZVR5cGUge09DUlNvdXJjZVR5cGV9IHR5cGUgb2YgaW1hZ2Ugc291cmNlXHJcbiAgICogQHBhcmFtIHNvdXJjZSB7c3RyaW5nfSBpbWFnZSBzb3VyY2UgKGVpdGhlciBmaWxlIFVSTCBvciBiYXNlNjQgc3RyaW5nKVxyXG4gICAqIEByZXR1cm5zIHtQcm9taXNlPE9DUlJlc3VsdD59IGV4dHJhY3RlZCB0ZXh0IGFuZCBnZW9tZXRyeVxyXG4gICAqL1xyXG4gIEBDb3Jkb3ZhKClcclxuICByZWNUZXh0KHNvdXJjZVR5cGU6IE9DUlNvdXJjZVR5cGUsIHNvdXJjZTogc3RyaW5nKTogUHJvbWlzZTxPQ1JSZXN1bHQ+IHtcclxuICAgIHJldHVybjtcclxuICB9XHJcbn1cclxuIl19
